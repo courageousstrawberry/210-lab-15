@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <array>
+#include <vector>
 
 using namespace std;
 
@@ -35,11 +35,16 @@ public:
     string getTitle() {
         return title;
     }
+    void print() {
+        cout << "Movie: " << title << endl;
+        cout << "\tYear released: " << year << endl;
+        cout << "\tScreenwriter: " << screen_writer << endl;
+    }
 };
 
 int main() {
     ifstream inputFile("movies.txt");
-    array<Movie, 5> movies;
+    vector<Movie> movies;
     string title;
     int year;
     string screen_writer;
@@ -47,7 +52,14 @@ int main() {
     if (inputFile.is_open()) {
         while (inputFile >> title >> year >> screen_writer) {
             Movie movie(screen_writer, year, title);
+            movies.push_back(movie);
         }
+        inputFile.close();
     }
+    else {
+        cout << "Error, failure when trying to open file." << endl;
+    }
+
+    for ()
     return 0;
 }
