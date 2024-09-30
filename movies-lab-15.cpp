@@ -13,5 +13,13 @@ private:
         year = y;
         title = t;
     }
-    
+    void setScreenWriter(string writer){
+        screen_writer = writer;
+    }
+    void setYear(int y) {
+        year = y;
+    }
+    void setTitle(string t) {
+        title = t;
+    }
 };
