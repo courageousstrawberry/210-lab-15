@@ -12,7 +12,7 @@ private:
 public:
     Movie() { screen_writer = "", year = 0, title = ""; }
 
-    Movie::Movie(string writer, int y, string t) {
+    Movie(string writer, int y, string t) {
         screen_writer = writer;
         year = y;
         title = t;
@@ -60,6 +60,9 @@ int main() {
         cout << "Error, failure when trying to open file." << endl;
     }
 
-    for ()
+    for (auto & movie: movies) {
+        movie.print();
+    }
+
     return 0;
 }
