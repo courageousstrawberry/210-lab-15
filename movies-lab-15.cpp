@@ -26,16 +26,16 @@ public:
     void setTitle(string t) {
         title = t;
     }
-    string getScreenWriter(){
+    string getScreenWriter() const{
         return screen_writer;
     }
-    int getYear() {
+    int getYear() const{
         return year;
     }
-    string getTitle() {
+    string getTitle() const{
         return title;
     }
-    void print() {
+    void print() const{
         cout << "Movie: " << title << endl;
         cout << "\tYear released: " << year << endl;
         cout << "\tScreenwriter: " << screen_writer << endl;
@@ -43,14 +43,15 @@ public:
 };
 
 int main() {
-    ifstream inputFile("movies.txt");
+    ifstream inputFile("input.txt");
     vector<Movie> movies;
+    string line;
     string title;
     int year;
     string screen_writer;
     
     if (inputFile.is_open()) {
-        while (inputFile >> title >> year >> screen_writer) {
+        while (getline(inputFile, title) && inputFile >> year && inputFile.ignore() && getline(inputFile, screen_writer)) {
             Movie movie(screen_writer, year, title);
             movies.push_back(movie);
         }
