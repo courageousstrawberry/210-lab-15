@@ -22,4 +22,13 @@ private:
     void setTitle(string t) {
         title = t;
     }
+    string getScreenWriter(){
+        return screen_writer;
+    }
+    int getYear() {
+        return year;
+    }
+    string getTitle() {
+        return title;
+    }
 };
