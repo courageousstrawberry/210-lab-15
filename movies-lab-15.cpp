@@ -1,14 +1,16 @@
 #include <iostream>
+#include <fstream>
+#include <array>
 
 using namespace std;
 
 class Movie{
-public:
+private:
     string screen_writer;
     int year;
     string title;
-private:
-    Movie(string writer, int y, string t) {
+public:
+    Movie::Movie(string writer, int y, string t) {
         screen_writer = writer;
         year = y;
         title = t;
@@ -32,3 +34,18 @@ private:
         return title;
     }
 };
+
+int main() {
+    ifstream inputFile("movies.txt");
+    array<Movie, 5> movies;
+    string title;
+    int year;
+    string screen_writer;
+
+    if (inputFile.is_open()) {
+        while (inputFile >> title >> year >> screen_writer) {
+            Movie movie(screen_writer, year, title);
+        }
+    }
+    return 0;
+}
