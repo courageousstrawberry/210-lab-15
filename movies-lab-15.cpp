@@ -10,6 +10,8 @@ private:
     int year;
     string title;
 public:
+    Movie() { screen_writer = "", year = 0, title = ""; }
+
     Movie::Movie(string writer, int y, string t) {
         screen_writer = writer;
         year = y;
@@ -41,7 +43,7 @@ int main() {
     string title;
     int year;
     string screen_writer;
-
+    
     if (inputFile.is_open()) {
         while (inputFile >> title >> year >> screen_writer) {
             Movie movie(screen_writer, year, title);
